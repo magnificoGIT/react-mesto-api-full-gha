@@ -82,7 +82,8 @@ class Api {
 }
 
 const api = new Api({
-  url: "http://localhost:3001",
+  url: "https://api.mestomagnifico.nomoredomainsmonster.ru",
+  // url: "http://localhost:3001",
 });
 
 export default api;

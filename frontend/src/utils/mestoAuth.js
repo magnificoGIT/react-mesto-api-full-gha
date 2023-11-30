@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.mestomagnifico.nomoredomainsmonster.ru";
+export const BASE_URL = "http://localhost:3000";
 
 const handleHttpResponse = (res) => {
   if (res.ok) {

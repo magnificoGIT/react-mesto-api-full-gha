@@ -1,0 +1,31 @@
+.profile__button_type_add {
+    width: 100%;
+    max-width: 150px;
+    min-height: 50px;
+    margin-left: auto;
+    margin-right: 0;
+    display: inline-block;
+    padding: 0;
+    align-self: center;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .profile__button_type_add {
+        max-width: 135px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .profile__button_type_add {
+        margin: 0 auto 0 auto;
+        max-width: 282px;
+    }
+}

@@ -1,0 +1,16 @@
+.profile__button_type_edit-avatar {
+    display: none;
+    border: none;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profile__button_type_edit-avatar:hover {
+    opacity: 1;
+}

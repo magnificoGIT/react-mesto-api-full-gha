@@ -1,0 +1,15 @@
+.auth__link-authorization {
+    margin-left: 4px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.auth__link-authorization:hover {
+    opacity: 0.6;
+}

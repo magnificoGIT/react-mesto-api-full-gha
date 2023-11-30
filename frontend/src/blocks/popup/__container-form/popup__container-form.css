@@ -1,0 +1,12 @@
+.popup__container-form {
+    background-color: #FFFFFF;
+    width: 430px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .popup__container-form {
+        width: 282px;
+    }
+}

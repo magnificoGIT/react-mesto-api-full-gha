@@ -1,0 +1,30 @@
+.profile__avatar-container {
+    position: relative;
+}
+
+.profile__avatar-container:hover .profile__avatar {
+    opacity: 0.6;
+    transition: 0.4s;
+  }
+
+.profile__avatar-container:hover .profile__button_type_edit-avatar {
+    display: block;
+}
+
+@media screen and (max-width: 900px) {
+    .profile__avatar-container {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .profile__avatar-container {
+        margin: 0 auto 26px auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile__avatar-container {
+        margin: 0 99px 26px 101px;
+    }
+}

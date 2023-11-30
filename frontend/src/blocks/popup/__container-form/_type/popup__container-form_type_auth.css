@@ -1,0 +1,6 @@
+.popup__container-form_type_auth {
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

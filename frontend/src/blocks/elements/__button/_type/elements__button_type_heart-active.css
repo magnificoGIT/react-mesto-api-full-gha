@@ -1,0 +1,7 @@
+.elements__button_type_heart-active {
+    background-image: url("../../../../images/blackHeart.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 1;
+}

@@ -1,0 +1,11 @@
+.profile__button-icon_type_edit {
+    max-width: 10px;
+    min-height: 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .profile__button-icon_type_edit {
+        max-width: 7.5px;
+        height: 100%;
+    }
+}

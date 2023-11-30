@@ -1,0 +1,6 @@
+.auth__form {
+    max-width: 358px;
+    margin: 60px auto 112px auto;
+    display: flex;
+    flex-direction: column;
+}

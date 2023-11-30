@@ -1,0 +1,7 @@
+.elements__button-icon_type_heart {
+    display: inline-block;
+    align-self: center;
+    max-width: 22px;
+    min-height: 19px;
+    pointer-events: none;
+}

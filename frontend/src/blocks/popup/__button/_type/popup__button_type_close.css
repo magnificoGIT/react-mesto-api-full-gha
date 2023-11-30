@@ -1,0 +1,26 @@
+.popup__button_type_close {
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    padding: 0;
+    z-index: 3;
+    height: 32px;
+    margin-left: 101.8%;
+    margin-bottom: 8px;
+    width: 32px;
+}
+
+.popup__button_type_close:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 650px) {
+    .popup__button_type_close {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        margin-bottom: 16px;
+        margin-left: calc(100% - 20px);
+    }
+}

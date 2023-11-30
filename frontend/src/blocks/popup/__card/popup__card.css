@@ -1,0 +1,14 @@
+.popup__card {
+    padding: 34px 36px 37px 36px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background: #FFFFFF;
+    max-width: 430px;
+}
+
+@media screen and (max-width: 650px) {
+    .popup__card {
+        width: 282px;
+        padding: 25px 22px;
+    }
+}

@@ -1,13 +1,16 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-require('dotenv').config();
+
 const { errors } = require('celebrate');
+const { MONGO_URI } = require('./config');
 const NotFoundError = require('./utils/errors/notFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT, MONGO_URL } = process.env;
+const { PORT = 3000 } = process.env;
+console.log(MONGO_URI);
 const app = express();
 
 app.use(
@@ -24,7 +27,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(MONGO_URL, {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

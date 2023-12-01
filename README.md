@@ -9,6 +9,6 @@
 
 IP 158.160.130.103
 
-Frontend https://api.mestomagnifico.nomoredomainsmonster.ru
+Frontend https://mestomagnifico.nomoredomainsmonster.ru
 
-Backend https://mestomagnifico.nomoredomainsmonster.ru
+Backend https://api.mestomagnifico.nomoredomainsmonster.ru

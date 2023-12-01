@@ -34,6 +34,7 @@ export const authorize = (data) => {
   }).then((res) => handleHttpResponse(res));
 };
 
+//Получение токена для нахождения информации о пользователе
 export const getContent = () => {
   const token = localStorage.getItem('token');
   return fetch(`${BASE_URL}/users/me`, {

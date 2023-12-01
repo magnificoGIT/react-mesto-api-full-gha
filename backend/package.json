@@ -4,9 +4,9 @@
   "description": "The backend of the project <Mesto>",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node --inspect -- app.js",
     "lint": "npx eslint .",
-    "dev": "nodemon app.js"
+    "dev": "nodemon --inspect -- app.js"
   },
   "keywords": [],
   "author": "Igor Klein",

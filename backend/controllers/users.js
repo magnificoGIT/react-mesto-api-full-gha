@@ -1,6 +1,6 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 const User = require('../models/user');
 const { SALT_ROUNDS } = require('../utils/constants');
 const NotFoundError = require('../utils/errors/notFoundError');
@@ -87,23 +87,23 @@ const login = (req, res, next) => {
         NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
         { expiresIn: '7d' },
       );
+      // Позже реализовать
       // res.cookie('jwt', token, {
       //   httpOnly: true,
       //   sameSite: true,
       //   maxAge: 3600000,
       // });
       // res.send({ message: 'Вы вошли' });
-      res.status(200).send({ token });
+      res.status(OK_200).send({ token });
     })
     .catch(next);
 };
 
 const getCurrentUser = (req, res, next) => {
-  User.findOne({ _id: req.user })
+  const { _id } = req.user;
+  User.find({ _id })
     .orFail(() => new NotFoundError('Такой пользователь не найден'))
-    .then((user) => {
-      res.send(user);
-    })
+    .then((user) => res.send(...user))
     .catch(next);
 };
 

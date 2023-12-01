@@ -8,10 +8,10 @@ module.exports = (req, res, next) => {
   // Реализовать потом
   // const tokenCookies = req.cookies.jwt;
   const { authorization } = req.headers;
-  if (!authorization) {
+  if (!authorization.startsWith('Bearer')) {
     return next(new UnauthorizedError('Вы не авторизованы'));
   }
-  const token = authorization.replace('Bearer ', '');
+  const token = authorization.split('Bearer ')[1];
 
   let payload;
   try {

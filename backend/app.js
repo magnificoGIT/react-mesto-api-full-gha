@@ -42,8 +42,10 @@ app.get('/crash-test', () => {
 
 app.use('/', require('./routes/loginAuth'));
 
-app.use('/', auth, require('./routes/cards'));
-app.use('/', auth, require('./routes/users'));
+app.use(auth);
+
+app.use('/', require('./routes/cards'));
+app.use('/', require('./routes/users'));
 
 app.all('*', (req, res, next) => {
   next(new NotFoundError('Ошибка пути'));

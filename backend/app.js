@@ -48,6 +48,8 @@ app.all('*', (req, res, next) => {
 app.use(errorLogger);
 
 app.use(errors());
+
+// Централизованный обработчик ошибок
 app.use(require('./middlewares/centralizedErrorHandler'));
 
 app.listen(PORT, () => {

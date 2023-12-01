@@ -5,12 +5,12 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const { errors } = require('celebrate');
+const { MONGO_URI } = require('./config');
 const NotFoundError = require('./utils/errors/notFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const auth = require('./middlewares/auth');
 
-const { PORT, MONGO_URI } = process.env;
-
+const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(
@@ -54,6 +54,7 @@ app.use(errorLogger);
 
 app.use(errors());
 
+// Централизованный обработчик ошибок
 app.use(require('./middlewares/centralizedErrorHandler'));
 
 app.listen(PORT, () => {

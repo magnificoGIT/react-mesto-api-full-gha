@@ -8,7 +8,6 @@ const { errors } = require('celebrate');
 const { MONGO_URI, PORT } = require('./config');
 const NotFoundError = require('./utils/errors/notFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const auth = require('./middlewares/auth');
 
 const app = express();
 
@@ -41,10 +40,7 @@ app.get('/crash-test', () => {
 
 app.use('/', require('./routes/loginAuth'));
 
-app.use(auth);
-
-app.use('/users', require('./routes/users'));
-app.use('/cards', require('./routes/cards'));
+app.use('/', require('./routes/index'));
 
 app.all('*', (req, res, next) => {
   next(new NotFoundError('Ошибка пути'));

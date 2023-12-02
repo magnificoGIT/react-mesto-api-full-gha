@@ -48,7 +48,7 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.code === 11000) {
-        next(new StatusConflictError('Пользователь уже существует'));
+        next(new StatusConflictError('Данный пользователь уже существует'));
       } else if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
       } else {

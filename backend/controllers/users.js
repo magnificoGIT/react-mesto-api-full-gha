@@ -6,6 +6,8 @@ const { SALT_ROUNDS } = require('../utils/constants');
 const NotFoundError = require('../utils/errors/notFoundError');
 const { OK_200, CREATED_201 } = require('../utils/httpStatusConstants');
 const { JWT_SECRET } = require('../config');
+const BadRequestError = require('../utils/errors/badRequest');
+const StatusConflictError = require('../utils/errors/statusConflict');
 
 const getUsers = (req, res, next) => {
   User.find({})
@@ -44,7 +46,15 @@ const createUser = (req, res, next) => {
         email,
       });
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.code === 11000) {
+        next(new StatusConflictError('Пользователь уже существует'));
+      } else if (err.name === 'ValidationError') {
+        next(new BadRequestError('Переданы некорректные данные'));
+      } else {
+        next(err);
+      }
+    });
 };
 
 // Универсальнная функция для обновления данных профиля пользователя
@@ -67,7 +77,13 @@ const updateProfileFields = (req, res, next) => {
       };
       res.status(OK_200).send(userData);
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new BadRequestError('Переданы некорректные данные'));
+      } else {
+        next(err);
+      }
+    });
 };
 
 // Функция декоратор для обновления полей name и about

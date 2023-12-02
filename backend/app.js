@@ -8,6 +8,7 @@ const { errors } = require('celebrate');
 const { MONGO_URI, PORT } = require('./config');
 const NotFoundError = require('./utils/errors/notFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const errorHandler = require('./utils/errors/errorHandler');
 
 const app = express();
 
@@ -52,6 +53,8 @@ app.use(errors());
 
 // Централизованный обработчик ошибок
 app.use(require('./middlewares/centralizedErrorHandler'));
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Сервер запустился на порту ${PORT}`);

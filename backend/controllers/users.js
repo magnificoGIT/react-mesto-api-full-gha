@@ -5,8 +5,7 @@ const User = require('../models/user');
 const { SALT_ROUNDS } = require('../utils/constants');
 const NotFoundError = require('../utils/errors/notFoundError');
 const { OK_200, CREATED_201 } = require('../utils/httpStatusConstants');
-
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { JWT_SECRET } = require('../config');
 
 const getUsers = (req, res, next) => {
   User.find({})
@@ -84,7 +83,7 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        process.env.NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
         { expiresIn: '7d' },
       );
       // Позже реализовать

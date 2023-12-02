@@ -5,12 +5,11 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const { errors } = require('celebrate');
-const { MONGO_URI } = require('./config');
+const { MONGO_URI, PORT } = require('./config');
 const NotFoundError = require('./utils/errors/notFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const auth = require('./middlewares/auth');
 
-const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(
@@ -44,8 +43,8 @@ app.use('/', require('./routes/loginAuth'));
 
 app.use(auth);
 
-app.use('/cards', require('./routes/cards'));
 app.use('/users', require('./routes/users'));
+app.use('/cards', require('./routes/cards'));
 
 app.all('*', (req, res, next) => {
   next(new NotFoundError('Ошибка пути'));
